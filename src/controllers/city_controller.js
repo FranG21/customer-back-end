@@ -7,7 +7,7 @@ router.get('/city/:state_id', async (req, res) => {
     try {
         const { state_id } = req.params;
 
-        const cities = await City.collection().where({ state_id }).fetch();
+        const cities = await City.collection().where({ state_id }).orderBy('name', 'ASC').fetch();
 
         res.json({
             error: false,

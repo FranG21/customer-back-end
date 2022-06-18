@@ -5,7 +5,7 @@ const router = new express.Router();
 
 router.get('/state', async (req, res) => {
     try {
-        const states = await State.collection().fetch();
+        const states = await State.collection().orderBy('name', 'ASC').fetch();
 
         res.json({
             error: false,
